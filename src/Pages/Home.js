@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../Components/Footer'
 import Recommended from '../Components/Recommended'
+import Application from '../Components/Application'
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
       <Recommended/>
       <Recommended/>
       </div>
+      <Application/>
     </div>
   )
 }

@@ -1,18 +1,27 @@
 .recomended{
-    width: 320px;
+    max-width: 320px;
     margin: 40px;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .btnR{
-    width: 35%;
+    width: fit-content;
+    font-size: small;
+    padding: 5px;
     background-color: #fff;
     border: 2px solid #000;
     border-radius: 10px;
 }
+.job-title{
+    font-size: large;
+    font-weight: 600;
+}
+img{
+    width: 100%;
+}
 .bottomDiv{
-    width: 90%;
+    width: 100%;
     background-color: #FFEE99;
     border-radius: 10px;
     align-items: center;
@@ -26,4 +35,24 @@
     border: 2px solid #fff;
     border-radius: 10px;
     font-weight: 600;
+}
+@media screen and (min-width: 992px) {
+    .btnR{
+        width: fit-content;
+        font-size: medium;
+        background-color: #fff;
+        border: 2px solid #000;
+        border-radius: 10px;
+    }
+    .job-title{
+        font-size: larger;
+        font-weight: 600;
+    }
+    .bottomDiv{
+        width: 90%;
+        background-color: #FFEE99;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: space-between;
+    }
 }

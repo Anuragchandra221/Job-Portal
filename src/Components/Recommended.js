@@ -7,9 +7,9 @@ function Recommended() {
         <p className='col-12 bold'>Google</p>
         <div className='d-flex align-items-center'>
             <div className='col-8'>
-                <h4>
+                <p className='job-title'>
                     Junior UI/UX Designer
-                </h4>
+                </p>
             </div>
             <div className='col-4'>
                 <img src={require('../assets/google.png')}/>
