@@ -1,0 +1,72 @@
+.footer{
+    width: 100%;
+    background-color: #FFEE99;
+    border-radius: 10px;
+    padding: 5px;
+}
+.vectorImg{
+    width: 1.2em;
+}
+.footer-heading{
+    font-size: larger;
+}
+.footer-text{
+    max-width: 300px;
+    line-height: 1.7em;
+}
+.main-heading{
+    font-family: 'Fjalla One', sans-serif;
+}
+.vector{
+    width: 1em;
+}
+.footer-div1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-div2{
+    margin-top: 1.3em;
+    width: fit-content;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+.footer-div2>p{
+    width: 100px;
+    margin-inline: auto;
+}
+@media only screen and (min-width: 992px) {
+    .footer{
+        width: 90%;
+        background-color: #FFEE99;
+        border-radius: 10px;
+    }
+    .footer-heading{
+        font-size: larger;
+    }
+    .footer-text{
+        max-width: 300px;
+        line-height: 1.7em;
+    }
+    .footer-div1{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .footer-div2{
+        margin-top: 1.3em;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .main-heading{
+        font-family: 'Fjalla One', sans-serif;
+    }
+    .vector{
+        width: 1em;
+    }
+    .vectorImg{
+        width: 1.2em;
+    }
+  }
