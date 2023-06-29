@@ -1,0 +1,29 @@
+.recomended{
+    width: 320px;
+    margin: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btnR{
+    width: 35%;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+.bottomDiv{
+    width: 90%;
+    background-color: #FFEE99;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+.bold{
+    font-weight: 600;
+}
+.bottomDiv>div>button{
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-weight: 600;
+}
