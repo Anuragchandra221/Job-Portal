@@ -6,6 +6,10 @@
 .logininput:focus{
     outline: none;
 }
+.logininput::placeholder{
+    font-weight: 600;
+    color: #000;
+}
 .loginbtn{
     width: 100%;
     border-radius: 10px;

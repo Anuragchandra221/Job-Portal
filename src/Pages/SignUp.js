@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Css/SignUp.css'
 import Header from '../Components/Header'
 import { Link, useNavigate } from 'react-router-dom/dist'
-import { sign_upc, sign_upe } from '../Utils/services'
+import { get_data, sign_upc, sign_upe } from '../Utils/services'
 
 function SignUp() {
   const [company, setCompany] = useState(false)
@@ -38,6 +38,13 @@ function SignUp() {
       }
     }
   }
+  useEffect(()=>{
+    if(get_data()){
+      navigate('/dashboard')
+    }else{
+        navigate('/')
+    }
+  },[])
   return (
     <div>
       <Header/>

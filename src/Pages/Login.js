@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./Css/Login.css"
 import Header from '../Components/Header'
 import { Link, useNavigate } from 'react-router-dom'
-import { login, set_data } from '../Utils/services'
+import { get_data, login, set_data } from '../Utils/services'
 import { loginContext } from '../App'
 import jwt_decode from "jwt-decode";
 
@@ -23,6 +23,13 @@ function Login() {
       })
     }
   }
+  useEffect(()=>{
+    if(get_data()){
+      navigate('/dashboard')
+    }else{
+        navigate('/')
+    }
+  },[])
   return (
     <div>
       <Header/>

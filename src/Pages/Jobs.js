@@ -47,7 +47,7 @@ function Jobs() {
           </div>
         </div>
         :<></>}
-        {show?<Application setShow={setShow} data={data}/>:<></>}
+        {show && user?<Application setShow={setShow} data={data}/>:<></>}
       </div>
       :
       <div>
