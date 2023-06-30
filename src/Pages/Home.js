@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../Components/Footer'
 import Recommended from '../Components/Recommended'
-import Application from '../Components/Application'
+
 import Header from '../Components/Header'
 import './Css/Home.css'
 import TopCompanies from '../Components/TopCompanies'

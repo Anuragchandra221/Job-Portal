@@ -1,5 +1,5 @@
 .recomended{
-    width: 320px;
+    width: 15em;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
@@ -54,5 +54,8 @@ img{
         border-radius: 10px;
         align-items: center;
         justify-content: space-between;
+    }
+    .recomended{
+        width: 20em;
     }
 }

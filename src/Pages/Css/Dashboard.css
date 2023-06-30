@@ -1,0 +1,10 @@
+.accountName{
+    font-size: xx-large;
+    font-weight: 600;
+}
+.dashdiv{
+    border: 2px solid #000;
+    padding-block: 4px;
+    padding-inline: 10px;
+    border-radius: 10px;
+}

@@ -1,0 +1,45 @@
+.jobbtn{
+    border: none;
+    background-color: #fff;
+}
+.jobbtn:focus{
+    outline: none;
+}
+.jobs{
+    height: 100vh;
+}
+.active{
+    border-bottom: 2px solid #FFE97F;
+    font-weight: 600;
+}
+.jobseek{
+    flex-direction: column;
+}
+.newjobs2{
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.newjobs2::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.newjobs2 {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.newjobheading{
+    font-size: 26px;
+    font-weight: 600;
+}
+@media screen and (min-width: 992px) {
+    .jobseek{
+        flex-direction: row;
+    }
+    .newjobs2{
+        max-height: 570px;
+        flex-wrap: wrap;
+    }
+    .newjobheading{
+        font-size: 30px;
+    }
+}

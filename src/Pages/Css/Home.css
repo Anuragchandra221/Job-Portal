@@ -10,6 +10,7 @@
 .searchBox{
     border: 1px solid #1A1423;
     height: 2em;
+    width: 100%;
 }
 .searchBtn{
     border-color: #FFE97F;
@@ -29,6 +30,9 @@
 .footerHeading>span{
     color:#FDD545;
 }
+.newjobs::-webkit-scrollbar {
+    display: none;
+}
 /* Hide scrollbar for IE, Edge and Firefox */
 .newjobs {
     -ms-overflow-style: none;  /* IE and Edge */
@@ -42,5 +46,10 @@
     .footerHeading{
         font-size: 60px;
         font-weight: bold;
+    }
+    .searchBox{
+        border: 1px solid #1A1423;
+        height: 2em;
+        width: 60%;
     }
 }

@@ -1,0 +1,21 @@
+.footer2{
+    background: linear-gradient(360deg, rgba(255, 238, 153, 0.68) 0%, rgba(217, 217, 217, 0.00) 100%);
+}
+.mainFooter{
+    font-size: 38px;
+    text-align: center;
+}
+.footerbtn{
+    background-color: #FDD545;
+    /* border-color: #FDD545; */
+    border: none;
+    width: 6em;
+    font-weight: 600;
+    border-radius: 10px;
+}
+@media screen and (min-width: 992px) {
+    .mainFooter{
+        font-size: 48px;
+        text-align: center;
+    }
+}
