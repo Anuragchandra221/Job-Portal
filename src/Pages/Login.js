@@ -33,7 +33,7 @@ function Login() {
               <input className='logininput mt-5 mb-4' onChange={(e)=>setEmail(e.target.value)} type="email" placeholder='Email..' />
               <input className='logininput mt-4 mb-4' onChange={(e)=>setPassword(e.target.value)} type="password" placeholder='Password..' />
               <button className='btn loginbtn mt-4 mb-2' onClick={loginuser}>Log in</button>
-              <p>Don't have an account? <Link>Sign Up</Link></p>
+              <p>Don't have an account? <Link to="/sign-up">Sign Up</Link></p>
             </div>
           </div>
           <div className='col-md-6 justify-content-start'>

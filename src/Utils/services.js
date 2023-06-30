@@ -1,5 +1,5 @@
 import axios from "axios"
-import { APPLY_JOB, BASE_URL, GET_APPLICATIONS, GET_JOBS, LATEST_JOBS, LOGIN, POST_JOB } from "./constants"
+import { APPLY_JOB, BASE_URL, GET_APPLICATIONS, GET_JOBS, LATEST_JOBS, LOGIN, POST_JOB, SIGN_UP } from "./constants"
 
 const latest_jobs = ()=>{
     return axios.get(`${BASE_URL}${LATEST_JOBS}`)
@@ -68,6 +68,27 @@ const get_jobs = ()=>{
     })
 }
 
+const sign_upc = (name, email, password, company, address)=>{
+    return axios.post(`${BASE_URL}${SIGN_UP}`,{
+        "name": name,
+        "email": email,
+        "password": password,
+        "company": company,
+        "address": {
+            "headquaters": address
+        }
+    })
+}
+
+const sign_upe = (name, email, password, company)=>{
+    return axios.post(`${BASE_URL}${SIGN_UP}`,{
+        "name": name,
+        "email": email,
+        "password": password,
+        "company": company,
+    })
+}
+
 export {
-    latest_jobs, login, set_data, get_data, remove_data, post_job, apply_job, get_applications, get_jobs
+    latest_jobs, login, set_data, get_data, remove_data, post_job, apply_job, get_applications, get_jobs, sign_upc, sign_upe
 }

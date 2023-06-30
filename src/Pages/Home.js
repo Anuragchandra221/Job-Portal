@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Footer from '../Components/Footer'
 import Recommended from '../Components/Recommended'
 
@@ -6,12 +6,21 @@ import Header from '../Components/Header'
 import './Css/Home.css'
 import TopCompanies from '../Components/TopCompanies'
 import Feedback from '../Components/Feedback'
-import { latest_jobs } from '../Utils/services'
+import { get_data, latest_jobs } from '../Utils/services'
+import Application from '../Components/Application'
+import { loginContext } from '../App'
+import jwt_decode from "jwt-decode";
 
 
 function Home() {
   const [jobs, setJobs] = useState()
+  const [user, setUser] = useContext(loginContext)
+  const [show, setShow] = useState(false)
+    const [data, setData] = useState()
   useEffect(()=>{
+    if(get_data()){
+      setUser(jwt_decode(get_data()))
+    }
     latest_jobs().then((results)=>{
       setJobs(results.data)
     }).catch((err)=>{
@@ -44,11 +53,12 @@ function Home() {
         <div className='d-flex newjobs'>
           {console.log(jobs[0])}
           {jobs.map((job,i)=>{
-            return <Recommended title={job.title} location={job.location} company={job.company.name} salary={job.salary}/>
+            return <Recommended title={job.title} setShow={setShow} setData={setData} location={job.location} company={job.company.name} salary={job.salary}/>
           })}
         </div>
         </div>
         :<></>}
+        {show && user?<Application setShow={setShow} data={data}/>:<></>}
         
       
       <TopCompanies/>
