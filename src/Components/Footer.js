@@ -3,7 +3,7 @@ import './Css/Footer.css'
 
 function Footer() {
   return (
-    <div className='footer mx-auto pb-2'>
+    <div className='footer mx-auto pb-2 mb-2'>
         <div className='row mx-auto d-flex  pt-5'>
             <div className='col-lg-6 col-md-12 flex-column'>
                 <div className='col-12 footer-div1'>
