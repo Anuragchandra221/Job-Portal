@@ -1,0 +1,45 @@
+.btnsign{
+    background-color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+}
+.signuptext{
+    font-size: 48px;
+    font-weight: bold;
+}
+.signupbtn{
+    width: 90%;
+    background-color: #FDD545;
+    border-radius: 10px;
+}
+.signinput{
+    border-bottom: 2px solid #000;
+    width: 90%;
+}
+.signimg{
+    width: 70%;
+}
+.signfirstdiv{
+    justify-content: center;
+}
+.actives{
+    background-color: #FDD545;
+}
+@media screen and (min-width: 992px) {
+    .signupbtn{
+        width: 70%;
+        background-color: #FDD545;
+        border-radius: 10px;
+    }
+    .signinput{
+        border-bottom: 2px solid #000;
+        width: 70%;
+    }
+    .signimg{
+        width: 70%;
+    }
+    .signfirstdiv{
+        justify-content: end;
+    }
+}

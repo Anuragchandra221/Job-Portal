@@ -26,7 +26,7 @@ function Recommended(props) {
                 {props.location}
             </div>
             <div>
-                <button onClick={()=>{
+                <button  onClick={props.setShow&&props.setData?()=>{
                     props.setShow(true)
                     props.setData()
                     props.setData({
@@ -36,7 +36,7 @@ function Recommended(props) {
                         "salary": props.salary,
                         "description":props.description
                     })
-                }}>Details</button>
+                }:''}>Details</button>
             </div>
         </div>
        

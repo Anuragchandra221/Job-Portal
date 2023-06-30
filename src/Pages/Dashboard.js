@@ -7,12 +7,15 @@ import Recommended from '../Components/Recommended'
 import { useNavigate } from 'react-router-dom'
 import jwt_decode from "jwt-decode"; 
 import { loginContext } from '../App'
+import Application from '../Components/Application'
 
 function Dashboard() {
     const [jobs, setJobs] = useState()
     const navigate = useNavigate()
     const [user, setUser] = useContext(loginContext)
     const [applications, setApplications] = useState()
+    const [show, setShow] = useState(false)
+    const [data, setData] = useState()
     const [jobsPosted, setJobsPosted] = useState()
   useEffect(()=>{
     if(get_data()){
@@ -77,11 +80,12 @@ function Dashboard() {
         <div className='d-flex newjobs'>
           {console.log(jobs[0])}
           {jobs.map((job,i)=>{
-            return <Recommended title={job.title} location={job.location} company={job.company.name} salary={job.salary}/>
+            return <Recommended title={job.title} setShow={setShow} setData={setData} location={job.location} company={job.company.name} salary={job.salary}/>
           })}
         </div>
         </div>
         :<></>}
+        {show?<Application setShow={setShow} data={data}/>:<></>}
 
         {user?user.company===false?
         applications?
@@ -89,7 +93,7 @@ function Dashboard() {
         <h2 >My Applications</h2>
         <div className='d-flex newjobs'>
           {applications.applications.map((application,i)=>{
-            return <Recommended  title={application.applying_for.title} location={application.applying_for.location} company={application.applying_for.company.name} salary={application.applying_for.salary}/>
+            return <Recommended  title={application.applying_for.title} setShow={setShow} setData={setData} location={application.applying_for.location} company={application.applying_for.company.name} salary={application.applying_for.salary}/>
           })}
         </div>
         </div>
@@ -99,7 +103,7 @@ function Dashboard() {
         <h2 >My Jobs</h2>
         <div className='d-flex newjobs'>
           {jobsPosted.jobs_posted.map((job,i)=>{
-            return <Recommended  title={job.title} location={job.location} company={job.company.name} salary={job.salary}/>
+            return <Recommended  title={job.title} setShow={setShow} setData={setData} location={job.location} company={job.company.name} salary={job.salary}/>
           })}
         </div>
         </div>
