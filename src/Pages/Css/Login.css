@@ -1,0 +1,28 @@
+.logininput{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+.logininput:focus{
+    outline: none;
+}
+.loginbtn{
+    width: 100%;
+    border-radius: 10px;
+    background-color: #FDD545;
+    font-weight: 500;
+}
+.loginimg{
+    width: 90%;
+}
+.login{
+    flex-direction: column-reverse;
+}
+a{
+    color: #000;
+}
+@media screen and (min-width: 992px) {
+    .login{
+        flex-direction: row;
+    }
+}

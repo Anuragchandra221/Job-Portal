@@ -1,18 +1,46 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
-import { latest_jobs } from '../Utils/services'
+import { get_applications, get_data, get_jobs, latest_jobs } from '../Utils/services'
 import './Css/Dashboard.css'
 import Recommended from '../Components/Recommended'
+import { useNavigate } from 'react-router-dom'
+import jwt_decode from "jwt-decode"; 
+import { loginContext } from '../App'
 
 function Dashboard() {
     const [jobs, setJobs] = useState()
+    const navigate = useNavigate()
+    const [user, setUser] = useContext(loginContext)
+    const [applications, setApplications] = useState()
+    const [jobsPosted, setJobsPosted] = useState()
   useEffect(()=>{
-    latest_jobs().then((results)=>{
-      setJobs(results.data)
-    }).catch((err)=>{
-      console.log(err.message)
-    })
+    if(get_data()){
+        setUser(jwt_decode(get_data()))
+        latest_jobs().then((results)=>{
+          setJobs(results.data)
+        }).catch((err)=>{
+          console.log(err.message)
+        })
+        if(jwt_decode(get_data()).company){
+          get_jobs().then().then((results)=>{
+            console.log(results.data)
+            if(results.status===200){
+              setJobsPosted(results.data)
+            }
+          })
+        }else{
+          get_applications().then((results)=>{
+            if(results.status===200){
+              setApplications(results.data)
+            }
+          }).catch((err)=>{
+  
+          })
+        }
+    }else{
+        navigate('/')
+    }
   },[])
   return (
     <div>
@@ -20,7 +48,7 @@ function Dashboard() {
         <div className='row p-3 p-lg-5 ml-lg-5'>
             <div className='col-lg-8 d-flex flex-column align-items-start'>
                 <p className='mb-0'>Welcome Back !!</p>
-                <p className='accountName'>Anurag Chandra</p>
+                <p className='accountName'>{user?user.name:''}</p>
 
                 <div className='d-flex mx-2 mx-lg-0 mb-4 mb-lg-1' style={{width: '100%'}}>
                     <input type='text' className='searchBox' placeholder='Search' />
@@ -53,6 +81,29 @@ function Dashboard() {
           })}
         </div>
         </div>
+        :<></>}
+
+        {user?user.company===false?
+        applications?
+        <div className='p-3 p-lg-5 ml-lg-5'>
+        <h2 >My Applications</h2>
+        <div className='d-flex newjobs'>
+          {applications.applications.map((application,i)=>{
+            return <Recommended  title={application.applying_for.title} location={application.applying_for.location} company={application.applying_for.company.name} salary={application.applying_for.salary}/>
+          })}
+        </div>
+        </div>
+        :<></>:
+        jobsPosted?
+        <div className='p-3 p-lg-5 ml-lg-5'>
+        <h2 >My Jobs</h2>
+        <div className='d-flex newjobs'>
+          {jobsPosted.jobs_posted.map((job,i)=>{
+            return <Recommended  title={job.title} location={job.location} company={job.company.name} salary={job.salary}/>
+          })}
+        </div>
+        </div>
+        :<></>
         :<></>}
 
         <Footer/>

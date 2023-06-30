@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Css/Recommended.css'
+import Application from './Application'
 
 function Recommended(props) {
   return (
@@ -25,9 +26,20 @@ function Recommended(props) {
                 {props.location}
             </div>
             <div>
-                <button>Details</button>
+                <button onClick={()=>{
+                    props.setShow(true)
+                    props.setData()
+                    props.setData({
+                        "title":props.title,
+                        "locations": props.location,
+                        "company": props.company,
+                        "salary": props.salary,
+                        "description":props.description
+                    })
+                }}>Details</button>
             </div>
         </div>
+       
     </div>
   )
 }

@@ -1,6 +1,9 @@
 .application{
     width: 100%;
-    position: relative;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    background-color: #fff;
 }
 .closebtn{
     position: absolute;
@@ -39,7 +42,7 @@ select{
 }
 @media screen and (min-width: 992px) {
     .application{
-        width: 80%;
+        width: 100%;
     }
     input{
         width: 60%;

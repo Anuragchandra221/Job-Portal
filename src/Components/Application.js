@@ -1,21 +1,30 @@
 import React, { useState } from 'react'
 import './Css/Application.css'
+import { apply_job } from '../Utils/services'
 
-function Application() {
+function Application(props) {
     const [name, setName] = useState()
     const [qualification, setQualification] = useState('BE/BTech')
     const [yoe, setYoe] = useState()
     const apply = ()=>{
-        console.log(name, qualification, yoe)
+        if(name && qualification && yoe){
+            apply_job(props.data.title, props.data.description, name, qualification, yoe).then((results)=>{
+                if(results.status===200){
+                    props.setShow(false)
+                }
+            }).catch((err)=>{
+                console.log(err.message)
+            })
+        }
     }
   return (
-    <div className='application px-5 py-3 mx-auto'>
-        <img className='closebtn' src={require('../assets/close.png')} />
-        <p className=' bold'>Google</p>
+    <div className='application px-5 py-3'>
+        <img className='closebtn' onClick={()=>props.setShow(false)} src={require('../assets/close.png')} />
+        <p className=' bold'>{props.data.company}</p>
         <div className='d-flex align-items-center justify-content-between'>
             <div>
                 <h4>
-                    Junior UI/UX Designer
+                    {props.data.title}
                 </h4>
             </div>
             <div>
@@ -25,8 +34,8 @@ function Application() {
         
         <div className='d-flex bottomDiv1 mx-auto mt-3 py-2'>
             <div>
-                <span className='bold'> 52K/Month </span><br/>
-                Banglore, India
+                <span className='bold'> {props.data.salary}/Month </span><br/>
+                {props.data.location}
             </div>
             <div className=''> 
                 <button className='btn btnA mr-2'>Full-time</button>
@@ -35,7 +44,7 @@ function Application() {
         </div>
         <div>
             <h4>Description</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            <p>{props.data.description}</p>
         </div>
         <div>
             <label htmlFor="name">Name </label><br/>

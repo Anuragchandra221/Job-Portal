@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './Css/Postjob.css'
+import { post_job } from '../Utils/services'
+import { useNavigate } from 'react-router-dom'
 
 function Postjob() {
     const [name, setName] = useState()
@@ -7,8 +9,14 @@ function Postjob() {
     const [salary, setSalary] = useState()
     const [due, setDue] = useState()
     const [location, setLocation] = useState()
+    const navigate = useNavigate()
     const apply = ()=>{
-        console.log(name, description, salary)
+        post_job(name, description, salary, due, location ).then((results)=>{
+            console.log(results)
+            if(results.status===200){
+                navigate('/dashboard')
+            }
+        })
     }
   return (
     <div className='postjob d-flex flex-column mx-auto'>
@@ -23,15 +31,15 @@ function Postjob() {
             </div>
             <div className='mt-5'>
                 <label htmlFor="salary">Salary </label><br/>
-                <input className='jobpostinput' type='number' onChange={(e)=>setSalary(e.target.value)} id="salary" placeholder='Years of Experience' />
+                <input className='jobpostinput' type='number' onChange={(e)=>setSalary(e.target.value)} id="salary" placeholder='Salary per month' />
             </div>
             <div className='mt-5'>
                 <label htmlFor="due">Deadline </label><br/>
-                <input className='jobpostinput' type='datetime-local' onChange={(e)=>setDue(e.target.value)} id="due" placeholder='Years of Experience' />
+                <input className='jobpostinput' type='date' onChange={(e)=>setDue(e.target.value)} id="due" placeholder='Deadline' />
             </div>
             <div className='mt-5'>
                 <label htmlFor="location">Location </label><br/>
-                <input className='jobpostinput' type='text' onChange={(e)=>setLocation(e.target.value)} id="location" placeholder='Years of Experience' />
+                <input className='jobpostinput' type='text' onChange={(e)=>setLocation(e.target.value)} id="location" placeholder='Location' />
             </div>
             <button className='btn btnPost mt-4 mb-5' onClick={apply} >Post</button>
         </div>
