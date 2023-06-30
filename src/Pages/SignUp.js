@@ -42,7 +42,7 @@ function SignUp() {
     if(get_data()){
       navigate('/dashboard')
     }else{
-        navigate('/')
+        
     }
   },[])
   return (
